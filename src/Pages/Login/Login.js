@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
     const {logIn} = useContext(AuthContext);
-
+    
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;

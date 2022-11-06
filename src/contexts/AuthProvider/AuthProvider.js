@@ -11,19 +11,22 @@ const AuthProvider = ({children}) => {
 
     // Create User with Email-Password
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     // SignIn With Email-Password
     const logIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     // Observer
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            console.log(currentUser);
+            // console.log(currentUser);
             setUser(currentUser);
+            setLoading(false);
         })
         return () => unSubscribe();
     },[])
