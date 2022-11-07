@@ -9,10 +9,10 @@ const PrivetRoute = ({children}) => {
     if(loading){
         return <h1 className="5xl">Loading...</h1>
     }
-    if(user){
-        return children;
+    if(!user){
+        return <Navigate to='/login' state={{from: location}} replace></Navigate>
     }
-    return <Navigate state={{from: location}} replace></Navigate>
+    return children;
 };
 
 export default PrivetRoute;
